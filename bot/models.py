@@ -8,15 +8,14 @@ class BotSettings(models.Model):
     def __str__(self):
         return f'Bot Settings'
 
-
 class UserProfile(models.Model):
-    user_id = models.IntegerField(unique=True)
+    user_id = models.IntegerField(unique=True, null=True)
     username = models.CharField(max_length=255, blank=True, null=True)
-    first_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255, null=True)
     last_name = models.CharField(max_length=255, blank=True, null=True)
-    language = models.CharField(max_length=255)
-    user_UTC = models.CharField(max_length=255)
-    notification = models.BooleanField(max_length=255)
+    language = models.CharField(max_length=255, null=True)
+    user_UTC = models.CharField(max_length=255, null=False)
+    notification = models.BooleanField()
 
 
     def __str__(self):
@@ -28,7 +27,7 @@ class language(models.Model):
     text_welcome = models.CharField(max_length=1500)
     text_timezone = models.CharField(max_length=1500)
     text_timezone_changed = models.CharField(max_length=1500)
-    text_subscribe = models.CharField(max_length=1500)
+    text_subscribe = models.CharField(max_length=1500, null=True)
     text_today = models.CharField(max_length=1500)
     text_tomorrow = models.CharField(max_length=1500)
     text_settings = models.CharField(max_length=1500)

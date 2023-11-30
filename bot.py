@@ -44,6 +44,9 @@ def handle_start(message):
             'username': username,
             'first_name': first_name,
             'last_name': last_name,
+            'language': 'ru',
+            'user_UTC': "1",
+            "notification": True
         }
     )
     keylan = types.InlineKeyboardMarkup()
@@ -63,35 +66,15 @@ def callback_inline(call):
         
         if call.data == "ru":
             db.lang_ru(user_id)
-
-            keyut = types.InlineKeyboardMarkup()
-            it1 = types.InlineKeyboardButton(text="UTC+3.", callback_data="utc3r")
-            it2 = types.InlineKeyboardButton(text="UTC+2", callback_data="utc2r")
-            keyut.add(it1,it2)
-            bot.edit_message_text(f'Привет, {username}\
- Я 🤖 ваш личный помощник в поиске раздач премиум-подписок в Telegram. 🎉\
-Выберите вариант ниже, вы можете изменить часовой пояс в своем профиле', call.message.chat.id, call.message.message_id, reply_markup=keyut)
+            bot.edit_message_text('russian', call.message.chat.id, call.message.message_id)
         
         if call.data == "en":
             db.lang_en(user_id)
-
-            keyut = types.InlineKeyboardMarkup()
-            it1 = types.InlineKeyboardButton(text="UTC+3.", callback_data="utc3e")
-            it2 = types.InlineKeyboardButton(text="UTC+2", callback_data="utc2e")
-            keyut.add(it1,it2)
-            bot.edit_message_text(f"Hi, {username}\
- I'm 🤖 your personal assistant in finding premium subscription giveaways on Telegram. 🎉\
-Choose the option below, you can change the time zone in your profile", call.message.chat.id, call.message.message_id, reply_markup=keyut)
+            bot.edit_message_text("english", call.message.chat.id, call.message.message_id)
+        
         if call.data == "ua":
             db.lang_ua(user_id)
-
-            keyut = types.InlineKeyboardMarkup()
-            it1 = types.InlineKeyboardButton(text="UTC+3.", callback_data="utc3u")
-            it2 = types.InlineKeyboardButton(text="UTC+2", callback_data="utc2u")
-            keyut.add(it1,it2)
-            bot.edit_message_text(f"Привіт, {username}\
- Я 🤖 ваш особистий помічник у пошуку розіграшів преміум підписок у Telegram. 🎉\
-Оберіть варіант нижче, ви можете змінити часовий пояс у своєму профілі", call.message.chat.id, call.message.message_id, reply_markup=keyut)
+            bot.edit_message_text("ukraine", call.message.chat.id, call.message.message_id)
 
 # Polling loop
 bot.polling(none_stop=True)
