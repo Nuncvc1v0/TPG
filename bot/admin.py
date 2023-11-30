@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(BotSettings)
 admin.site.register(UserProfile)
-
+admin.site.register(language)
