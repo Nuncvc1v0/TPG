@@ -8,6 +8,7 @@ class BotSettings(models.Model):
     def __str__(self):
         return f'Bot Settings'
 
+
 class UserProfile(models.Model):
     user_id = models.IntegerField(unique=True)
     username = models.CharField(max_length=255, blank=True, null=True)
