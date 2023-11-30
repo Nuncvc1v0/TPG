@@ -15,7 +15,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=255, blank=True, null=True)
     language = models.CharField(max_length=255)
     UTC = models.CharField(max_length=255)
-    notification = models.IntegerField(max_length=255)
+    notification = models.BooleanField(max_length=255)
 
 
     def __str__(self):
