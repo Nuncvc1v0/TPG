@@ -39,3 +39,9 @@ class language(models.Model):
 
     def __str__(self):
         return f'Language'
+
+class Giveaways(models.Model):
+    ch_link = models.CharField(max_length=255)
+    amount = models.IntegerField(max_length=20000)
+    date = models.CharField(max_length=255)
+    duration = models.IntegerField(max_length=5)
