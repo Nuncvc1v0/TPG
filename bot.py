@@ -53,14 +53,6 @@ def handle_start(message):
             "notification": True
         }
     )
-    # log_file_path = 'log.txt'
-    # with open(log_file_path, 'a') as log_file:
-    #     if username is not None:
-    #         log_message = '-- id' + str(user_id) + '   @' + username + '   ' + 'wrote the start command\n'
-    #     else:
-    #         log_message = '-- id' + str(user_id) + '   ' + 'Unknown Username   ' + 'wrote the start command\n'
-
-    #     log_file.write(log_message)
     keylan = types.InlineKeyboardMarkup()
     
     it1 = types.InlineKeyboardButton(text="ru", callback_data="ru")
